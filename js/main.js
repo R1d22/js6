@@ -1,59 +1,103 @@
-const form = document.forms.calcForm;
-const container = document.querySelector('.container');
-const plusButton = document.querySelector('.plus');
-const minusButton = document.querySelector('.minus');
-const multiplyButton = document.querySelector('.multiply');
-const sqrtButton = document.querySelector('.sqrt');
-let firstNumber = document.querySelector('.first__number');
-let secondNumber = document.querySelector('.second__number');
+const getValue = () => {
+    const formEl = document.forms.roof;
+
+    const data = new FormData(formEl);
+
+    const one = Number(data.get('width').trim());
+    const two = Number(data.get('height').trim());
+    const th = Number(data.get('line'))//document.querySelector('.line');
+    const tr = Number(data.get('column'))//document.querySelector('.column');
+    const a = one * th;
+    const b = two * tr;
+    return [a,b];
+};
+
+const setResult = (val) => {
+    const container = document.querySelector('.container')
+    container.innerHTML = val;
+};
+const multiplyBtn = document.querySelector('.multiply');
+const block = document.querySelector('.block');
+const table = document.querySelector('.no-display');
+
+//const tbody = document.querySelector('tbody');
 
 
-plusButton.addEventListener('click', (ev) =>{
+multiplyBtn.addEventListener('click', (ev) => {
     ev.preventDefault();
 
-    const aPlusInp = Number (firstNumber.value);
-    const bPlusInp = Number (secondNumber.value);
 
-    const sum = aPlusInp + bPlusInp;
-    container.innerHTML = sum;
+    const vals = getValue();
+    const result = vals[2]// * vals[1] ;
+    //const block = document.createElement('div');
+    //block.classList.add("none")
+    //table.classList.remove("no-display");
+    //table.classList.add("block");
+    /*for (let i=a; i<vals[0]; i++) {
+        result = result + i;
+    }
 
+    /*if(vals[0] > block) {
+        div.clone(block);
+        block.classList.remove("none");
+        block.classList.add("block");
+       
+    }  else {return}*/
+
+    /*for(let i = result; result < vals[0]; i++) {
+        result = result.clone(block) + i;
+    }*/
+
+   
+
+    setResult(result);
 });
+ 
 
 
-minusButton.addEventListener('click', (ev) => {
+
+
+
+
+
+
+
+
+
+
+//const block = document.querySelector('.block');
+/*const secondContainer = document.querySelector('.second__container')
+function a(numberSelected) {
+    let numberOne = 0;
+    for (let i = 0; i < one; i++){
+        if (numberSelected.one[i].selected) {
+            numberOne
+        }
+    }
+    return numberOne
+}/*
+
+
+multiplyBtn.addEventListener('click', function(){
+    alert
+})
+/*multiplyBtn.addEventListener('click', (ev) => {
     ev.preventDefault();
 
+    const vals = getValue();
+    const result = vals[0] * vals[1];
+    /*draw = function() {
+        typed = $('#width').val()
+    
+    }*/
+    //const divBlock = document.createElement('div');
+    //divBlock.classList.add('block')
 
-    const aMinusInp = Number (firstNumber.value);
-    const bMinusInp = Number (secondNumber.value);
-    const diff = aMinusInp - bMinusInp;
-
-    container.innerHTML = diff;
-});
-
-multiplyButton.addEventListener('click', (ev) => {
-    ev.preventDefault();
-
-    const aMultiplyInp = Number (firstNumber.value);
-    const bMultiplyInp = Number (secondNumber.value);
-    const multiply = Math.pow(aMultiplyInp, bMultiplyInp);
-
-    container.innerHTML = multiply;
-
-});
-
-sqrtButton.addEventListener('click', (ev) => {
-    ev.preventDefault();
-
-    const aSqrtInp = Number (firstNumber.value);
-    const bSqrtInp = Number (secondNumber.value);
-    const sqrt = Math.pow(aSqrtInp, 1/bSqrtInp);
-
-    container.innerHTML = sqrt;
-});
-
-const t = 12.231241412;
-
-console.log(Math.ceil(t));
-
-console.log(t.toFixed());
+   //setResult(result);
+    /*const html = `
+        <div>
+             ${divBlock}
+        </div>
+    `
+    secondContainer.insertAdjacentHTML('afterbegin', html);*/
+//});

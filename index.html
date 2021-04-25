@@ -10,16 +10,24 @@
 
 </head>
 <body>
-	<form name="calcForm">
-		<input type="text" class="first__number">
-		<input type="text" class="second__number">
-		<button type="button" class="plus">+</button>
-		<button type="button" class="minus">-</button>
-		<button type="button" class="multiply">^</button>
-		<button type="button" class="sqrt">√</button>
+
+	
+	<form name="roof">
+		<input type="number" name="width" id="width" pattern="/[0-9]+/">
+		<input type="number" name="height" pattern="/[0-9]+/">
+		<button type="click" class="multiply">Do it!</button>
+	
 	
 	</form>
-	<div class="container"></div>
+	<hr>
+	<div class="container">
+	<table class="no-display">
+		<tr name="column">
+			<th name="line"></th>
+		</tr>
+	</table>
+	<div class="second__container"></div>
+
 	<script src="/js/main.js"></script>
 </body>
 
