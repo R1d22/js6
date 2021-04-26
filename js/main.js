@@ -1,15 +1,11 @@
-const getValue = () => {
+/*const getValue = () => {
     const formEl = document.forms.roof;
 
     const data = new FormData(formEl);
 
     const one = Number(data.get('width').trim());
     const two = Number(data.get('height').trim());
-    const th = Number(data.get('line'))//document.querySelector('.line');
-    const tr = Number(data.get('column'))//document.querySelector('.column');
-    const a = one * th;
-    const b = two * tr;
-    return [a,b];
+    return [one,two];
 };
 
 const setResult = (val) => {
@@ -26,12 +22,30 @@ const table = document.querySelector('.no-display');
 multiplyBtn.addEventListener('click', (ev) => {
     ev.preventDefault();
 
-
-    const vals = getValue();
-    const result = vals[2]// * vals[1] ;
-    //const block = document.createElement('div');
-    //block.classList.add("none")
+    
+   // block.classList.add("none")
     //table.classList.remove("no-display");
+
+    const createField = (one,two) => {
+        let html = '';
+        
+
+        for(let i = 0; i < one; i++) {
+            html += '<div class="block">';
+            for(let j = 0; j < two; j++) {
+                html = '</div>'
+            }
+        }
+    }
+    createField(one,two);
+
+    setResult.innerHTML = html;
+
+
+    /*const vals = getValue();
+    const result = vals[0]// * vals[1] ;
+    //const block = document.createElement('div');
+
     //table.classList.add("block");
     /*for (let i=a; i<vals[0]; i++) {
         result = result + i;
@@ -50,7 +64,7 @@ multiplyBtn.addEventListener('click', (ev) => {
 
    
 
-    setResult(result);
+ /*   setResult(result);
 });
  
 
@@ -101,3 +115,35 @@ multiplyBtn.addEventListener('click', function(){
     `
     secondContainer.insertAdjacentHTML('afterbegin', html);*/
 //});
+
+
+//const submitButton = document.querySelector('.submit');
+const container = document.querySelector('.container');
+const submitButton = document.querySelector('.submit-button');
+const block = document.querySelector('.no-display');
+
+submitButton.addEventListener('click', (ev) => {
+    
+    const formData = new FormData();
+    const column = Number(formData.get('.one'));
+    const row = Number(formData.get('.two'));
+    
+    
+
+    createField(column, row);
+});
+
+
+const createField = (column, row) => {
+    let html = '';
+
+    for(let i = 0; i < row; i++){
+        html += `<div class="block">`;
+        for(let j = 0; j < column; j++){
+            html += `<div class="block"></div>`;
+        }
+        html += `</div>`;
+    };
+    console.log('html:' +html)
+    container.innerHTML = html;
+};
