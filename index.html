@@ -8,11 +8,12 @@
  	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
 	<link rel="stylesheet" href="styles/main.css">
 
+
 </head>
 <body>
 
 	
-	<form name="roof">
+	<form class="form">
 		<input type="number" name="width" id="width" pattern="/[0-9]+/">
 		<input type="number" name="height" pattern="/[0-9]+/">
 		<button type="button" class="submit-button">Do it!</button>
@@ -20,9 +21,15 @@
 	
 	</form>
 	<hr>
-	<div class="container"></div>
+	<form class="joystick">
+		<button type="button" class="up">&#8593;</button>
+		<button type="button" class="right">&#8594;</button>
+		<button type="button" class="down">&#8595;</button>
+		<button type="button" class="left">&#8592;</button>
+	</form>
+	<hr class="second">
 	
-	<div class="second__container"></div>
+	<div class="container"></div>
 
 	<script src="/js/main.js"></script>
 </body>
